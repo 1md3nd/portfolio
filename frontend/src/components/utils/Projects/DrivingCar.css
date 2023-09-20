@@ -1,0 +1,8 @@
+.sketch{
+        display: flex;
+            justify-content: space-between;
+}
+.verticalButtons{
+        display: flex;
+          flex-direction: column;
+}

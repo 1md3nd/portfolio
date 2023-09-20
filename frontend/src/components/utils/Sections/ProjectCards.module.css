@@ -1,0 +1,128 @@
+
+.top{
+    display: flex;
+        /* font-size: 16px; */
+        /* font-size: var(--maru-large); */
+        /* line-height: 49px; */
+        line-height: var(--baseline-box);
+}
+
+.logo{
+    margin:0;
+        align-items: center;
+            border-bottom: 1px solid #666;
+            border-bottom: var(--border);
+            border-left: 1px solid #666;
+            border-left: var(--border);
+            display: flex;
+            flex-basis: 49px;
+            flex-basis: var(--baseline-box);
+            flex-shrink: 0;
+            font-family: GT Maru Emoji;
+            font-family: var(--maru-emoji);
+            font-size: 18px;
+            font-size: var(--maru-emoji-normal);
+            justify-content: center;
+            line-height: 1em;
+            padding-bottom: 3.26667px;
+            padding-bottom: calc(var(--baseline-box)/15);
+}
+.heading {
+    margin: 0;
+    border-bottom: 1px solid #666;
+    border-bottom: var(--border);
+    border-left: 1px solid #666;
+    border-left: var(--border);
+    flex-grow: 1;
+    font-family: var(--maru-mono);
+    font-size: 16px;
+    font-size: var(--maru-large);
+    font-weight: 400;
+    line-height: 49px;
+    line-height: var(--baseline-box);
+    min-height: 50px;
+    min-height: var(--baseline);
+    overflow: hidden;
+    padding: 0 25px;
+    padding: 0 var(--box-padding);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+ .heading a {
+      color: inherit;
+      text-decoration: none;
+  }
+
+  .card-image-container {
+      position: relative;
+      /* Ensure the container contains the image */
+      width: 100%;
+      height: var(--maru-small);
+      overflow: hidden;
+      border-bottom: 1px solid #666;
+      border-bottom: var(--border);
+
+      /* Hide any overflow from the image */
+  }
+
+  .description {
+    line-height: var(--baseline-box);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    border-left: var(--border); 
+    border-bottom: var(--border); 
+    padding: 0 var(--box-padding);
+  }
+  .description p{
+    margin: 0;
+  }
+
+
+  .image {
+        border-bottom: 1px solid #666;
+            border-bottom: var(--border);
+            border-left: 1px solid #666;
+            border-left: var(--border);
+            object-fit: cover;
+            height: var(--baseline-4x);
+            width: 100%;
+  }
+
+  .card-header {
+      display: flex;
+      /* width: 300px; */
+      border-bottom: 1px solid #666;
+      /* padding: 0 var(--box-padding) 0 0; */
+      justify-content: center;
+  }
+
+  .card {
+      display: inline;
+      flex-grow: 1;
+      font-family: var(--maru-mono);
+      font-size: 16px;
+      font-size: var(--maru-large);
+      font-weight: 400;
+      line-height: 49px;
+      line-height: var(--baseline-box);
+      min-height: 50px;
+      min-height: var(--baseline);
+      overflow: hidden;
+      /* padding: 0 25px; */
+      /* padding: 0 var(--box-padding); */
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+  article {
+    width: calc(33.33333% - 33.33333px);
+    width: calc(33.33333% - var(--baseline)*2/3);
+    height: var(--baseline-6x);
+}
+
+@media (max-width:900px) {
+    article {
+            width: 100%;
+            height: var(--baseline-6x);
+        }
+}
