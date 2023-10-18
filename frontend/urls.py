@@ -5,7 +5,6 @@ urlpatterns = [
     path('', index),
     path('contact', index),
     path('project', index),
-    path(r'^.*$', index),
     path('asciiart', index),
     path('about', index),
     path('test', index),
