@@ -7,10 +7,9 @@ export default class Control {
         if (carType == 'traffic') {
             this.up = true;
         }
-    }
+    };
 
     keyPressed(p) {
-
         if (p.keyCode === p.UP_ARROW) {
             this.up = true;
         }
@@ -23,7 +22,7 @@ export default class Control {
         if (p.keyCode === p.LEFT_ARROW) {
             this.left = true;
         }
-    }
+    };
 
     keyReleased(p) {
         if (p.keyCode === p.UP_ARROW) {
@@ -38,6 +37,6 @@ export default class Control {
         if (p.keyCode === p.LEFT_ARROW) {
             this.left = false;
         }
-    }
+    };
 };
 
