@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './ProjectCards.module.css';
+import { Link } from "react-router-dom";
+
 function ProjectCards(props) {
   return (
     <article>
@@ -13,11 +15,11 @@ function ProjectCards(props) {
         <img
           src={props.props.image}
           alt="project_img"
-          height="200"
         />
       </div>
       <div className={styles.description}>
         <p>{props.props.description}</p>
+        <Link to={props.props.link} aria-label="Go to homepage">Visit</Link>
       </div>
     </article>
   );

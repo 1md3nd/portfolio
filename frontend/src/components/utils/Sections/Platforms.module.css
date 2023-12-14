@@ -51,9 +51,7 @@
         /* font-size: 80px; */
     }
 @media (max-width:900px) {
-    .top h2{
-    /* font-size: var(--maru-mega-medium); */
-    }
+
     
 }
 @media (max-width:900px) {
@@ -73,10 +71,10 @@
 
 @media (max-width:620px) {
   
-    .top h2 {
+    /* .top h2 { */
             /* font-size: var(--maru-mega-small); */
             /* height: var(--baseline-2x); */
-        }
+        /* } */
 }
 
 @media (max-width:540px) {

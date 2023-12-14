@@ -4,9 +4,9 @@ import css from './TextBlock.module.css';
 function TextBlock(props) {
   return (
     <div className={css.container} >
-        <p>
+      <p>
         {props.text}
-        </p>
+      </p>
     </div>
   );
 }

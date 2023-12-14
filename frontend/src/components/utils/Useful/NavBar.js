@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Menu from "./Menu";
 function NavBar() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
@@ -25,14 +25,14 @@ function NavBar() {
   return (
     <div className={cssm.outer}>
       <header className={cssm.root} >
-          <div  className={cssm.logo}  >
-         <Link to="/" aria-label="Go to homepage"><h2>The Platform</h2></Link>
-          </div>
-          <div className={cssm.clock}>🕛</div>
-        <div  className={cssm.date}>
-         {formattedTime}
+        <div className={cssm.logo}  >
+          <Link to="/" aria-label="Go to homepage"><h2>The Platform</h2></Link>
+        </div>
+        <div className={cssm.clock}>🕛</div>
+        <div className={cssm.date}>
+          {formattedTime}
         </div >
-        
+
         {/* <Link  to="/about" aria-label="about me" >
           <div className={cssm.options}>
             Projects
@@ -49,7 +49,7 @@ function NavBar() {
           </div>
         </Link>
         <div className={cssm.toogle}>
-        <Menu/>
+          <Menu />
         </div>
       </header>
     </div>

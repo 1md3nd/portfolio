@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 function updateFilter() {
@@ -11,14 +11,14 @@ function updateFilter() {
   const contrastValue = Math.random() * 200;
 
   // Apply the dynamic filter to the image
-  const filter =  `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg) brightness(${brightnessValue}%) contrast(${contrastValue}%)`;
+  const filter = `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg) brightness(${brightnessValue}%) contrast(${contrastValue}%)`;
   // console.log(filter);
   return filter;
 }
 
 function DynamicImage(props) {
-    
-    const [filterValues, setFilterValues] = useState(updateFilter());
+
+  const [filterValues, setFilterValues] = useState(updateFilter());
 
   useEffect(() => {
     // Update the filter every second
@@ -30,10 +30,10 @@ function DynamicImage(props) {
     return () => clearInterval(interval);
   }, []);
 
-    return (
-            <>
-            <img src={props.image} style={{filter:filterValues}}/>
-            </>
-    );
+  return (
+    <>
+      <img src={props.image} style={{ filter: filterValues }} />
+    </>
+  );
 }
 export default DynamicImage;

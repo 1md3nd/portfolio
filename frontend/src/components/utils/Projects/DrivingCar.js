@@ -35,12 +35,12 @@ function DrivingCar() {
             };
         }, sketchRef.current);
 
-        p5Instance2 = new p5((p) => {
-            p.setup = () => {
-                visualizersetup(p);
+        p5Instance2 = new p5((p2) => {
+            p2.setup = () => {
+                visualizersetup(p2);
             };
-            p.draw = () => {
-                visualizer(p);
+            p2.draw = () => {
+                visualizer(p2);
             };
         }, networkCanvasRef.current);
 
@@ -88,17 +88,36 @@ function DrivingCar() {
             <div ref={sketchRef} className={css.canvascar}></div>
             {/* <canvas ref={networkCanvasRef}></canvas> */}
             <div className={css.verticalButtons}>
-                <button onClick={refreshCanvas}>
-                    <img src={refresh} />
-                </button>
-                <button onClick={saveCar}>
-                    <img src={savebtn} />
-                </button>
-                <button onClick={deleteCar}>
-                    <img src={deletebtn} />
-                </button>
+                <div className={css.btn_text}>
+                    <button onClick={refreshCanvas}>
+                        <img src={refresh} />
+                    </button>
+                    <p>Relaod if performing well</p>
+                </div>
+                <div className={css.btn_text}>
+                    <button onClick={saveCar}>
+                        <img src={savebtn} />
+                    </button>
+                    <p>Save the current best car</p>
+
+                </div>
+
+                <div className={css.btn_text}>
+
+                    <button onClick={deleteCar}>
+                        <img src={deletebtn} />
+                    </button>
+                    <p>Delete the saved car</p>
+                </div>
+                <div className={css.btn_text}>
+                    <p>By perfoming several save of best can we can achieve a car which can be fully self-driving</p>
+                </div>
+                <div className={css.btn_text}>
+                    <p>Use wide screen like laptop/pc for better view.</p>
+                </div>
+
             </div>
-            <div ref={networkCanvasRef} className={css.canvascar}></div>
+            <div ref={networkCanvasRef} className={css.network}></div>
         </div>
     );
 }

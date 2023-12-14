@@ -4,9 +4,9 @@ import css from './OtherSocials.module.css';
 import DynamicImage from '../Useful/DynamicImage';
 function OtherSocials() {
   const socialLinks = [
-    { platform: 'twitter', link: 'https://twitter.com/yourusername', img: '../../static/images/logo/twitter.png' },
-    { platform: 'instagram', link: 'https://www.instagram.com/yourusername', img: '../../static/images/logo/instagram.png' },
-    { platform: 'linkedin', link: 'https://www.github.com/yourusername', img: '../../static/images/logo/linkedin.svg' },
+    { platform: 'twitter', link: 'https://twitter.com/1md3nd', img: '../../static/images/logo/twitter.png' },
+    { platform: 'instagram', link: 'https://www.instagram.com/1md3nd', img: '../../static/images/logo/instagram.png' },
+    // { platform: 'linkedin', link: 'https://www.linkedin.com/yourusername', img: '../../static/images/logo/linkedin.svg' },
     // Add more social links as needed
   ];
   return (

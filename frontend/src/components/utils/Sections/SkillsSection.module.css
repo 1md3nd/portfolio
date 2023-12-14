@@ -44,3 +44,8 @@ font-size: var(--maru-mega-large);
     margin: 0;
     font-size: var(--maru-medium);
 }
+@media (max-width:425px) {
+    .skills{
+        display: table;
+    }
+}

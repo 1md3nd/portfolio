@@ -7,9 +7,10 @@ import bgimg from '../../../../static/images/background/colored_shade_0.svg';
 const Platforms = () => {
   // Add your social account links here
   const socialLinks = [
-    { platform: 'LeetCode', link: 'https://twitter.com/yourusername' },
-    { platform: 'CodeChef', link: 'https://www.instagram.com/yourusername' },
-    { platform: 'GitHub', link: 'https://www.github.com/yourusername' },
+    { platform: 'LinkedIn', link: 'https://www.linkedin.com/in/1md3nd' },
+    { platform: 'GitHub', link: 'https://www.github.com/1md3nd' },
+    { platform: 'LeetCode', link: 'https://www.leetcode.com/1md3nd' },
+    { platform: 'CodeChef', link: 'https://www.instagram.com/arcreator_07' },
     // Add more social links as needed
   ];
 

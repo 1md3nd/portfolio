@@ -7,25 +7,53 @@ function Intro() {
   const into = {
     topic_name: "Hi! I'm Anurag !",
     logo: batman,
-    text: "Hi there! I'm Anurag Ranjan, a passionate and driven Full Stack Developer with a keen interest in leveraging technology to create innovative solutions. With a solid foundation in Information Technology and a major focus on Big Data, I've been on an exciting journey of continuous learning and growth.\
-During my time at KIET Group Of Institution, I honed my skills in programming languages such as Python, C++, and JavaScript. My academic journey also introduced me to the world of machine learning and data analysis, where I've developed a knack for solving complex problems through code and data.\
-I'm not just a developer, but also an avid problem solver and learner. With a strong coding profile on platforms like Hackerrank, Codechef, and Leetcode, I've tackled challenges head-on and achieved 1698 Codechef highest rating. My proficiency in various programming languages, databases, and development tools enables me to bring innovative ideas to life.\
-Whether it's crafting elegant code, designing efficient systems, or collaborating with teams, I'm passionate about pushing boundaries and delivering high-quality solutions. Feel free to explore my projects and skills to get a deeper insight into my journey as a developer.",
+    text: "🚀 Eager Software Developer Engineer | Python & Machine Learning \
+    Welcome to my professional journey! I'm Anurag Ranjan, a dedicated and forward-thinking individual\
+     passionate about making an impact in the world of software development. Currently navigating the complexities\
+      of B.Tech in Information Technology at KIET Group of Institutions, my academic journey has been a playground \
+      for mastering Artificial Intelligence, Machine Learning, and OOPS.\
+    My recent internship at Healthkart allowed me to dive deep into real-world challenges.\
+     Showcasing my proficiency in Python, machine learning, and the ELK stack. The thrill of deploying ML models\
+      on AWS for real-time predictions further fueled my enthusiasm for creating efficient and impactful solutions.\
+    Beyond academics and internships, I find joy in coding challenges. Whether it's achieving a commendable rank on Codechef,\
+     solving complex problems on Leetcode, my journey is marked by continuous learning and pushing boundaries.\
+    I thrive on curiosity, innovation, and a commitment to excellence. As I continue my journey, I am open to collaboration,\
+     mentorships, and opportunities that challenge and inspire me. Let's connect, explore possibilities, and create something\
+      extraordinary together!\
+    #SoftwareDevelopment #Python #MachineLearning #ELKStack #ContinuousLearner #TechInnovator",
   }
   return (
     <div className={css.intoContainer} >
       <div className={css.top}>
         <TopicH props={into} />
       </div>
-      <div className={css.intro}>
-        <span>
-          Hi there! I'm Anurag Ranjan, a passionate and driven Full Stack Developer with a keen interest in leveraging technology to create innovative solutions. With a solid foundation in Information Technology and a major focus on Big Data, I've been on an exciting journey of continuous learning and growth.During my time at KIET Group Of Institution, I honed my skills in programming languages such as Python, C++, and JavaScript. My academic journey also introduced me to the world of machine learning and data analysis, where I've developed a knack for solving complex problems through code and data.
+      <div className={css.intro} style={{ overflow: 'hidden' }}>
+        <span style={{ height: 'var(--baseline)', fontWeight: 'bold' }}>
+          Python & Machine Learning Enthusiast
         </span>
         <span>
-          I'm not just a developer, but also an avid problem solver and learner. With a strong coding profile on platforms like Hackerrank, Codechef, and Leetcode, I've tackled challenges head-on and achieved 1698 Codechef highest rating. My proficiency in various programming languages, databases, and development tools enables me to bring innovative ideas to life.Whether it's crafting elegant code, designing efficient systems, or collaborating with teams, I'm passionate about pushing boundaries and delivering high-quality solutions.
+          Welcome to my professional journey! I'm Anurag Ranjan, a dedicated and forward-thinking individual  passionate about making
+          an impact in the world of software development. Currently navigating the complexities of B.Tech in Information Technology at KIET Group of Institutions,
+          my academic journey has been a playground for mastering Artificial Intelligence, Machine Learning, and OOPS.
+        </span>
+
+        <span>
+          My recent internship at Healthkart allowed me to dive deep into real-world challenges. Showcasing my proficiency in Python,
+          machine learning, and the ELK stack. The thrill of deploying ML models on AWS for real-time predictions further fueled my enthusiasm
+          for creating efficient and impactful solutions.
+
+        </span>
+
+
+        <span>
+          Beyond academics and internships, I find joy in coding challenges. Whether it's achieving a commendable rank on Codechef, solving complex problems on Leetcode,
+          I thrive on curiosity, innovation, and a commitment to excellence. As I continue my journey, I am open to collaboration,
+          mentorships, and opportunities that challenge and inspire me.
+
         </span>
         <span>
-          Feel free to explore my projects and skills to get a deeper insight into my journey as a developer.
+          Let's connect, explore possibilities, and create something extraordinary together!
+
         </span>
       </div>
     </div>

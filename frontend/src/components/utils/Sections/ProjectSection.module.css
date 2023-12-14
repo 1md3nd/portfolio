@@ -5,6 +5,8 @@
 .grid {
     display: flex;
     flex-wrap: wrap;
+
+
 }
 .about{
     height: var(--baseline-3x);

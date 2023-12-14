@@ -15,7 +15,7 @@ function ProjectPage() {
         </Typography>
         <ul style={{ paddingLeft: '1.5rem' }}>
           <li>
-            <Typography variant="body1">Project 1: Description of project 1</Typography>
+            <Typography variant="body1">Project 1: SelfDrivingCar</Typography>
           </li>
           <li>
             <Typography variant="body1">Project 2: Description of project 2</Typography>

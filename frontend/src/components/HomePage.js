@@ -9,6 +9,7 @@ import TextToAsciiArt from "./pages/TextAscii";
 import AboutMe from "./pages/AboutMe";
 import Footer from "./utils/Useful/Footer";
 import TestPage from "./utils/TestPage";
+import SelfDrivingCar from "./pages/SelfDrivingCar";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ export default class HomePage extends Component {
             <Route path="/project" element={<ProjectPage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/asciiart" element={<TextToAsciiArt />} />
+            <Route path="/selfdrivingcar" element={<SelfDrivingCar />} />
             {/* <Route path="/test" element={<TestPage />} /> */}
           </Routes>
           {/* </Container> */}

@@ -4,14 +4,14 @@ import Road from './road';
 import { lerp } from './utility';
 import { Visualizer } from './visualizer';
 
-const width = 400;
-const height = 400;
+const width = 300;
+const height = 500;
 const N = 300;
 
 const config = {
     carColors: [[0, 0, 255]],
     carSizes: [30, 50],
-    laneCenters: [0, 1, 2, 3, 4, 5,],
+    laneCenters: [0, 1, 2, 3,],
 };
 
 let road;
@@ -37,10 +37,10 @@ function deleteBrain() {
 
 function setup(p) {
     p.createCanvas(width, height);
-    road = new Road(width / 2, width * 0.9, 6);
+    road = new Road(width / 2, width * 0.9, config.laneCenters.length);
     for (let i = 0; i < N; i++) {
         // cars.push(new Car(road.getLaneCentre(2), 100, 30, 50, "AI", [0, 0, 255]))
-        cars.push(new Car(road.getLaneCentre(1), 100, 30, 50, "AI", [0, 0, 255]))
+        cars.push(new Car(road.getLaneCentre(1), 100, 30, 50, "AI", [0, 0, 255], 3.5))
         // cars.push(new Car(road.getLaneCentre(0), 100, 30, 50, "Car", [0, 0, 255]))
     }
 
@@ -131,6 +131,8 @@ function draw(p) {
 
 }
 function visualizer(networkCtx) {
+
+    // console.log(currentTime);
     Visualizer.drawNetwork(networkCtx, bestCar.brain);
 
 }

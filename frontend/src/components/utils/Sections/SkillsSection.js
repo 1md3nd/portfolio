@@ -5,7 +5,7 @@ import skill_logo from '../../../../static/images/skills.png';
 
 
 function SkillsSection() {
-  const skills = ['HTML/CSS', 'JavaScript', 'HTML/CSS', 'JavaScript', 'HTML/CSS', 'JavaScript', 'HTML/CSS', 'JavaScript', 'HTML/CSS', 'JavaScript', 'HTML/CSS', 'JavaScript',]; // Add more skills
+  const skills = ['Python', 'JavaScript', 'HTML/CSS', 'SQL', 'Docker', 'Machine Learning', 'scikit-learn', 'Kafka', 'RESTful APIs', 'MySQL', 'MongoDB', 'ElasticSearch', 'Flask', 'NodeJs', 'Django', 'PyTorch',]; // Add more skills
   const args = {
     topic_name: 'Skills',
     color: `var(--pink)`,

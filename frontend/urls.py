@@ -8,5 +8,6 @@ urlpatterns = [
     path('asciiart', index),
     path('about', index),
     path('test', index),
+    path('selfdrivingcar',index),
 
 ]

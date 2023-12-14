@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box, Typography, Paper } from '@mui/material';
 import css from './TopicH.module.css';
 function TopicH(props) {
   return (
@@ -10,7 +9,7 @@ function TopicH(props) {
       <div className={css.heading} style={{ color: props.props.color }}>
         <h2>
           {props.props.topic_name}
-          </h2>
+        </h2>
       </div>
       {props.props.logo ? (
         <div className={css.logo}>
