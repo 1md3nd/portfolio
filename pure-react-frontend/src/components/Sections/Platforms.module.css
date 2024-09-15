@@ -1,0 +1,109 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(153, 147, 147, 0.103);
+}
+.top{
+    width: 80%;
+    font-family: inherit;
+    font-size: var(--maru-mega-medium);
+    align-items: center;
+    text-transform: uppercase;
+
+}
+.accounts{
+    width: 30%;
+    border-bottom: var(--border);
+    justify-content: space-between;
+    border-left: var(--border);
+}
+.row{
+    font-size: var(--maru-medium);
+    height: var(--baseline);
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    text-transform: uppercase;
+    border-bottom: 1px dotted #ab95928f;
+}
+.button {
+    padding: 8px var(--box-padding);
+    border: 1px solid var(--orange);
+    border-radius: 25px;
+    background-color: var(--orange);
+}
+.btntext b{
+    color: antiquewhite;
+    
+}
+/* @media (min-height:1024px) {
+    .container{
+        display: flex;
+    } */
+/* } */
+
+   .top h2 {
+        font-size: var(--maru-mega-large);
+        /* font-size: 80px; */
+    }
+@media (max-width:900px) {
+
+    
+}
+@media (max-width:900px) {
+    .container{
+        display: block;
+    }
+    .top{
+        width: 100%;
+    }
+    .accounts{
+    width: 100%;
+    }
+    .button{
+        padding: 5px var(--box-padding);
+    }   
+}
+
+@media (max-width:620px) {
+  
+    /* .top h2 { */
+            /* font-size: var(--maru-mega-small); */
+            /* height: var(--baseline-2x); */
+        /* } */
+}
+
+@media (max-width:540px) {
+    /* .top h2{
+        font-size: 50px;
+    } */
+    
+}
+@media (max-width:400px) {
+    /* .top.container{ */
+        /* height: var(--baseline); */
+    /* } */
+    .top h2{
+        /* font-size: 40px;  */
+        font-size: var(--maru-mega-medium);
+        padding: 0;
+         }
+    .row{
+        font-size: 10px;
+    }
+}
+
+@media (max-width:365px) {
+    .top h2{
+        /* font-size: 30px; */
+        font-size: var(--maru-mega-small);
+    }
+          .row {
+              font-size: 8px;
+          }
+          
+}
