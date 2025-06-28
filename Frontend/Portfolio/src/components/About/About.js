@@ -1,59 +1,117 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
 import Leetcode from "./Leetcode";
+import "./About.css";
 
 function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <Container fluid className="about-section" style={{ position: "relative" }}>
-      <Container>
-        <Row
-          style={{
-            position: "relative",
-            justifyContent: "center",
-            padding: "10px",
-          }}
-        >
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
+    <div className="about-wrapper">
+      <Container fluid className="about-section">
+        <Container>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I'M</strong>
-            </h1>
-            <Aboutcard />
-          </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
-            <img src={laptopImg} alt="about" className="img-fluid" />
-          </Col>
-        </Row>
-        <h1 className="project-heading" style={{ position: "relative" }}>
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
+            <Row className="about-header-section">
+              <Col md={7}>
+                <motion.div variants={itemVariants}>
+                  <h1 className="about-heading">
+                    Discover <span className="highlight">My Story</span>
+                  </h1>
+                  <p className="about-subtitle">
+                    DevOps Engineer & Technology Enthusiast
+                  </p>
+                  <Aboutcard />
+                </motion.div>
+              </Col>
 
-        <Techstack />
+              <Col md={5} className="about-img-section">
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                >
+                  <div className="image-container">
+                    <img 
+                      src={laptopImg} 
+                      alt="about" 
+                      className="floating-image"
+                    />
+                  </div>
+                </motion.div>
+              </Col>
+            </Row>
 
-        <h1 className="project-heading" style={{ position: "relative" }}>
-          <strong className="purple">Tools</strong> I use
-        </h1>
-        <Toolstack />
+            <motion.div
+              variants={itemVariants}
+              className="skills-section"
+            >
+              <h1 className="section-heading">
+                Professional <span className="highlight">Skillset</span>
+              </h1>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Techstack />
+              </motion.div>
+            </motion.div>
 
-        <Github />
-        <Leetcode />
+            <motion.div
+              variants={itemVariants}
+              className="stats-section"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Github />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Leetcode />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </Container>
       </Container>
-    </Container>
+    </div>
   );
 }
 
