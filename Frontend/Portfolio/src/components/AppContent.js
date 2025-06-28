@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import NavbarComponent from "./NavbarComponent";
 import Home from "./Home/Home";
 import About from "./About/About";
@@ -11,18 +12,16 @@ import ScrollToTop from "./ScrollToTop";
 import BlogRead from "./Blogs/BlogRead";
 import LocationHome from "./LocationView/LocationHome";
 import DrivingCar from "./SelfDrivingCar/DrivingCar";
-import PasswordsPage from "./Passwords/PasswordsPage";
 
 // Page transition animation
 const pageTransition = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 },
-  transition: { duration: 0.4, ease: 'easeInOut' } // Smoother easing
+  transition: { duration: 0.4, ease: 'easeInOut' }
 };
 
 function AppContent() {
-  const location = useLocation();
 
   return (
     <motion.div 
@@ -43,7 +42,6 @@ function AppContent() {
         <Route path="/blog/:blogId" element={<BlogRead />} />
         <Route path="/location" element={<LocationHome />} />
         <Route path="/selfdrivingcar" element={<DrivingCar />} />
-        <Route path="/passwords" element={<PasswordsPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />

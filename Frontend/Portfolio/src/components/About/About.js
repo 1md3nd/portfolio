@@ -5,7 +5,6 @@ import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
 import Leetcode from "./Leetcode";
 import "./About.css";
 
@@ -32,7 +31,7 @@ function About() {
 
   return (
     <div className="about-wrapper">
-      <Container fluid className="about-section">
+        <Container fluid className="about-section">
         <Container>
           <motion.div
             variants={containerVariants}

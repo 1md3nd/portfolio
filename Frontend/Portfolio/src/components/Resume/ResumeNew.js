@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { AiOutlineDownload, AiOutlineEye } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
-import ParticleBackground from "../ParticleBackground";
 import "./Resume.css";
 
 const branch = process.env.REACT_APP_BRANCH || 'main';
@@ -43,7 +42,6 @@ function ResumeNew() {
 
   return (
     <div className="resume-wrapper">
-      <ParticleBackground />
       <Container fluid className="resume-section tech-container">
         <Container>
           <motion.div
