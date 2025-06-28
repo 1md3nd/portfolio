@@ -1,26 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  Container,
-  Button,
-  Row,
-  Col,
-  Spinner,
-  Alert,
-  Table,
-  Form,
-} from "react-bootstrap";
+import { Container, Row, Col, Spinner, Alert, Table, Form } from "react-bootstrap";
+import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 import { useGeolocated } from "react-geolocated";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  ZoomableGroup,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { MdLocationOn } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
+import { BiWorld } from "react-icons/bi";
 import { formatDistanceToNow } from "date-fns";
+import ParticleBackground from "../ParticleBackground";
+import "./Location.css";
 
 function LocationHome() {
   const [sessionId, setSessionId] = useState(uuidv4());
@@ -162,201 +151,246 @@ function LocationHome() {
     }
     return false;
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <Container
-      fluid
-      className="text-white"
-      style={{ paddingTop: "100px", paddingBottom: "70px" }}
-    >
-     
-
-      <Container fluid style={{ paddingTop: "50px", position: "relative" }}>
-        {loading && <Spinner animation="border" variant="dark" />}
-        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-
-        <Row>
-          {/* Coordinates Section */}
-          <Col md={6}>
-            <div className="card p-3 shadow-sm">
-              <h3>Your Place:</h3>
-              {state && (
-                <p>
-                  <strong>State:</strong> {state} <br />
-                  <strong>Country:</strong> {country}
-                </p>
-              )}
-              <Form.Group controlId="userMessage">
-                <Form.Label>Enter a message:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your message here"
-                  value={userMessage}
-                  onChange={(e) => setUserMessage(e.target.value)}
-                  className="mb-3"
-                />
-              </Form.Group>
-              <Button onClick={sendLocationData} className="w-100">
-                Add my Message
-              </Button>
-            </div>
-          </Col>
-
-          {/* Data Table Section */}
-          <Col md={6}>
-            <div className="card p-3 shadow-sm">
-              <h3>Total Entries: {allLocationData.length}</h3>
-              <div
-                style={{
-                  maxHeight: "calc(8 * 41px)",
-                  padding: "0",
-                  overflowY: "auto",
-                }}
-              >
-                <Table
-                  bordered
-                  hover
-                  variant="dark"
-                  responsive
-                  className=""
-                >
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>When</th>
-                      <th>Message</th>
-                      <th>State</th>
-                      <th>Country</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {allLocationData.map((loc, index) => {
-                      const isHighlighted = highlightCurrentLocation(loc);
-                      const timestamp = formatDistanceToNow(
-                        new Date(parseInt(loc.timestamp, 10) * 1000),
-                        { addSuffix: true }
-                      );
-                      var bColor = "";
-                      if (isHighlighted) {
-                        bColor = "var(--imp-text-color)";
-                      }
-                      return (
-                        <tr key={index} className={
-                          isHighlighted ? "text-light": ""
-                        }>
-                          <td
-                            style={{
-                              backgroundColor: bColor,
-                            }}
-                          >
-                            {index + 1}
-                          </td>
-                          <td
-                            style={{
-                              backgroundColor: bColor,
-                            }}
-                          >
-                            {timestamp}
-                          </td>
-                          <td
-                            style={{
-                              backgroundColor: bColor,
-                            }}
-                          >
-                            {loc.message || "No message"}
-                          </td>
-                          <td
-                            style={{
-                              backgroundColor: bColor,
-                            }}
-                          >
-                            {loc.state || "N/A"}
-                          </td>
-                          <td
-                            style={{
-                              backgroundColor: bColor,
-                            }}
-                          >
-                            {loc.country || "N/A"}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-      {coords && (
-        <Container
-          className="mt-4"
-          style={{
-            maxHeight: "1000px",
-            maxWidth: "none",
-            paddingRight: "70px",
-            border: "1px solid rgb(255, 255, 255)",
-          }}
+    <div className="location-wrapper">
+      <ParticleBackground />
+      <Container fluid>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <ComposableMap
-            projectionConfig={{
-              scale: 205,
-              rotation: [-101, 0, 0],
-            }}
-            width={900}
-            height={400}
+          <motion.div 
+            className="section-header text-center mb-5"
+            variants={itemVariants}
           >
-            <ZoomableGroup
-              center={[coords.longitude, coords.latitude]}
-              zoom={1.5}
-            >
-              <Geographies
-                geography="/features.json"
-                stroke="#FFF"
-                strokeWidth={0.3}
+            <h1 className="location-title">
+              Global <span className="highlight">Presence</span>
+            </h1>
+            <p className="tech-subtitle">
+              Track and share your location across the digital frontier
+            </p>
+          </motion.div>
+
+          {loading && (
+            <div className="d-flex justify-content-center">
+              <Spinner animation="border" className="loading-spinner" />
+            </div>
+          )}
+          
+          {errorMessage && (
+            <Alert variant="danger" className="error-alert">
+              {errorMessage}
+            </Alert>
+          )}
+
+          <Row>
+            <Col md={6}>
+              <motion.div 
+                className="location-card p-4 mb-4"
+                variants={itemVariants}
               >
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
+                <h3 className="neon-text mb-4">
+                  <BiWorld className="me-2" />
+                  Your Location
+                </h3>
+                
+                {state && (
+                  <div className="coordinates-info">
+                    <div>
+                      <span className="coordinate-label">State:</span> {state}
+                    </div>
+                    <div>
+                      <span className="coordinate-label">Country:</span> {country}
+                    </div>
+                  </div>
+                )}
+
+                <Form.Group controlId="userMessage">
+                  <Form.Label className="text-light">Leave your mark:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Share a message about your location..."
+                    value={userMessage}
+                    onChange={(e) => setUserMessage(e.target.value)}
+                    className="location-input mb-3"
+                  />
+                </Form.Group>
+
+                <motion.button
+                  className="tech-button w-100"
+                  onClick={sendLocationData}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Add Message
+                </motion.button>
+              </motion.div>
+            </Col>
+
+            <Col md={6}>
+              <motion.div 
+                className="location-card p-4"
+                variants={itemVariants}
+              >
+                <h3 className="neon-text mb-4">
+                  Global Check-ins ({allLocationData.length})
+                </h3>
+                
+                <div className="table-container">
+                  <Table hover variant="dark" className="tech-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>When</th>
+                        <th>Message</th>
+                        <th>State</th>
+                        <th>Country</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {allLocationData.map((loc, index) => {
+                        const isHighlighted = highlightCurrentLocation(loc);
+                        const timestamp = formatDistanceToNow(
+                          new Date(parseInt(loc.timestamp, 10) * 1000),
+                          { addSuffix: true }
+                        );
+                        
+                        return (
+                          <motion.tr
+                            key={index}
+                            className={isHighlighted ? "highlight-row" : ""}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                          >
+                            <td>{index + 1}</td>
+                            <td>{timestamp}</td>
+                            <td>{loc.message || "No message"}</td>
+                            <td>{loc.state || "N/A"}</td>
+                            <td>{loc.country || "N/A"}</td>
+                          </motion.tr>
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                </div>
+              </motion.div>
+            </Col>
+          </Row>
+
+          {coords && (
+            <motion.div
+              className="map-container mt-4"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <ComposableMap
+                projectionConfig={{
+                  scale: 205,
+                  rotation: [-101, 0, 0],
+                }}
+                width={900}
+                height={400}
+              >
+                <ZoomableGroup
+                  center={[coords.longitude, coords.latitude]}
+                  zoom={1.5}
+                >
+                  <Geographies
+                    geography="/features.json"
+                    stroke="var(--primary-neon)"
+                    strokeWidth={0.3}
+                  >
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          style={{
+                            default: {
+                              fill: "rgba(66, 129, 151, 0.3)",
+                              stroke: "var(--primary-neon)",
+                              strokeWidth: 0.3,
+                              outline: "none",
+                            },
+                            hover: {
+                              fill: "rgba(255, 255, 255, 0.2)",
+                              stroke: "var(--primary-neon)",
+                              strokeWidth: 0.5,
+                              outline: "none",
+                            },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+
+                  {allLocationData.map((location, index) => (
+                    <Marker
+                      key={index}
+                      coordinates={[location.longitude, location.latitude]}
+                    >
+                      <g
+                        transform="translate(-5, -10)"
+                        className="location-marker"
+                      >
+                        <MdLocationOn size={10} color="var(--primary-neon)" />
+                      </g>
+                    </Marker>
+                  ))}
+
+                  <Marker coordinates={[coords.longitude, coords.latitude]}>
+                    <g
+                      transform="translate(-3.5, -3.5)"
+                      className="current-location-marker"
+                    >
+                      <FaLocationCrosshairs
+                        size={7}
+                        color="var(--primary-neon)"
+                      />
+                    </g>
+                    <text
+                      textAnchor="middle"
+                      dy={-15}
                       style={{
-                        default: { fill: "#428197", outline: "none" },
-                        hover: { fill: "whitesmoke", outline: "none" },
+                        fontSize: "5px",
+                        fill: "var(--primary-neon)",
+                        filter: "drop-shadow(0 0 2px var(--primary-neon))",
                       }}
-                    />
-                  ))
-                }
-              </Geographies>
-
-              {allLocationData.map((location, index) => (
-                <Marker
-                  key={index}
-                  coordinates={[location.longitude, location.latitude]}
-                >
-                  <g transform="translate(-5, -10)">
-                    <MdLocationOn size={10} color="black" />
-                  </g>
-                </Marker>
-              ))}
-
-              <Marker coordinates={[coords.longitude, coords.latitude]}>
-                <g transform="translate(-3.5, -3.5)">
-                  <FaLocationCrosshairs size={7} color="yellow" />
-                </g>
-                <text
-                  textAnchor="middle"
-                  dy={-15} // Adjusts text position above the icon
-                  style={{ fontSize: "5px", fill: "#FFFF00" }}
-                >
-                  {"You are here"}
-                </text>
-              </Marker>
-            </ZoomableGroup>
-          </ComposableMap>
-        </Container>
-      )}
-    </Container>
+                    >
+                      You are here
+                    </text>
+                  </Marker>
+                </ZoomableGroup>
+              </ComposableMap>
+            </motion.div>
+          )}
+        </motion.div>
+      </Container>
+    </div>
   );
 }
 

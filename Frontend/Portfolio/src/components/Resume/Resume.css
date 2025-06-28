@@ -1,0 +1,134 @@
+.resume-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: var(--dark-bg);
+}
+
+.resume-section {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tech-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.button-icon {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.resume-preview {
+  position: relative;
+  padding: 20px;
+  background: rgba(10, 10, 15, 0.5);
+  border-radius: 10px;
+  border: 1px solid var(--primary-neon);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.resume-preview:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.pdf-page {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.2));
+}
+
+.loading-screen,
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.tech-loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-neon);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.tech-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.tech-note .icon {
+  color: var(--primary-neon);
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary-neon),
+    transparent
+  );
+  animation: scan 2s linear infinite;
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-section {
+    padding-top: 80px;
+  }
+
+  .tech-subtitle {
+    font-size: 1rem;
+  }
+
+  .resume-preview {
+    padding: 10px;
+  }
+
+  .tech-note {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,165 @@
+.location-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: var(--dark-bg);
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+
+.location-card {
+  background: rgba(10, 10, 15, 0.8) !important;
+  border: 1px solid var(--primary-neon) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.location-card:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2) !important;
+}
+
+.location-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(0, 255, 255, 0.2) !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.location-input:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--primary-neon) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2) !important;
+}
+
+.tech-table {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.tech-table th {
+  background: rgba(0, 255, 255, 0.1) !important;
+  color: var(--primary-neon) !important;
+  border-color: rgba(0, 255, 255, 0.2) !important;
+  font-weight: 500;
+}
+
+.tech-table td {
+  border-color: rgba(0, 255, 255, 0.1) !important;
+  transition: all 0.3s ease;
+}
+
+.tech-table tr:hover td {
+  background: rgba(0, 255, 255, 0.05) !important;
+  color: white !important;
+}
+
+.highlight-row td {
+  background: rgba(0, 255, 255, 0.1) !important;
+  color: var(--primary-neon) !important;
+  text-shadow: 0 0 10px var(--primary-neon);
+}
+
+.map-container {
+  border: 1px solid var(--primary-neon) !important;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(10, 10, 15, 0.8);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.tech-button {
+  background: transparent !important;
+  border: 1px solid var(--primary-neon) !important;
+  color: var(--primary-neon) !important;
+  transition: all 0.3s ease !important;
+}
+
+.tech-button:hover {
+  background: var(--primary-neon) !important;
+  color: var(--darker-bg) !important;
+  box-shadow: 0 0 15px var(--primary-neon) !important;
+}
+
+.loading-spinner {
+  color: var(--primary-neon) !important;
+}
+
+.error-alert {
+  background: rgba(255, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  color: #ff4444 !important;
+}
+
+.location-title {
+  font-size: 1.8rem;
+  color: var(--primary-neon);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px var(--primary-neon);
+}
+
+.coordinates-info {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.coordinate-label {
+  color: var(--primary-neon);
+  font-weight: 500;
+}
+
+.table-container {
+  max-height: calc(8 * 41px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-neon) rgba(0, 255, 255, 0.1);
+}
+
+.table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--primary-neon);
+  border-radius: 3px;
+}
+
+/* Map Styling */
+.rsm-geography {
+  transition: all 0.3s ease;
+}
+
+.rsm-geography:hover {
+  filter: brightness(1.2);
+}
+
+.location-marker {
+  filter: drop-shadow(0 0 5px var(--primary-neon));
+}
+
+.current-location-marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
