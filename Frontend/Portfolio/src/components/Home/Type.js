@@ -12,7 +12,6 @@ function Type() {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
   const typingSpeed = 90;
   const deletingSpeed = 40;
   const pauseTime = 1200;

@@ -10,6 +10,40 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { SiDocker, SiKubernetes, SiTerraform } from "react-icons/si";
 import myImg from "../../Assets/avatar.png";
 import { useTheme } from "../../context/ThemeContext";
+import { motion } from "framer-motion";
+
+const HomeAboutSection = styled.section`
+  background: ${props => props.theme === "light" ? "#f8f9fa" : "#1a202c"};
+  color: ${props => props.theme === "light" ? "#333" : "#fff"};
+  padding: 80px 0;
+`;
+
+const Highlight = styled.span`
+  color: #64ffda;
+`;
+
+const SocialIcons = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const SocialIconItem = styled.li`
+  margin: 0 15px;
+`;
+
+const SocialLink = styled(motion.a)`
+  color: ${props => props.theme === "light" ? "#333" : "#fff"};
+  font-size: 2em;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #64ffda;
+    text-decoration: underline; /* Added underline for better visibility */
+  }
+`;
 
 function TechIcon({ icon: Icon, label }) {
   if (typeof Icon === "string") {
@@ -289,7 +323,7 @@ function Home2() {
           </motion.div>
         </motion.div>
       </Container>
-    </Container>
+    </HomeAboutSection>
   );
 }
 

@@ -37,6 +37,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "^5.0.1",
+    "react-scroll-parallax": "^3.4.5",
     "react-simple-maps": "^3.0.0",
     "react-typed": "^2.0.12",
     "reading-time": "^1.5.0",

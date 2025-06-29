@@ -260,7 +260,7 @@ function Home() {
         <div className="scanner-line" />
       </Container>
       <Home2 />
-    </section>
+    </HomeSection>
   );
 }
 

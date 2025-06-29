@@ -57,7 +57,6 @@ function NavbarComponent() {
       color: "rgb(0, 255, 255)",
     }
   };
-
   return (
     <motion.div
       initial="hidden"
