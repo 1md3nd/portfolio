@@ -12,6 +12,8 @@ import BlogRead from "./Blogs/BlogRead";
 import LocationHome from "./LocationView/LocationHome";
 import DrivingCar from "./SelfDrivingCar/DrivingCar";
 // import PasswordsPage from "./Passwords/PasswordsPage";
+
+function AppContent({ load }) {
   return (
     <motion.div 
       className="App bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
