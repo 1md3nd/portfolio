@@ -1,0 +1,106 @@
+.tech-navbar {
+  padding: 0.8rem 1.5rem;
+  background: rgba(10, 10, 15, 0.8) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-out;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.tech-navbar-scrolled {
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+  background: rgba(5, 5, 10, 0.95) !important;
+}
+
+.tech-brand img {
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.tech-toggler {
+  border: none !important;
+  padding: 0.25rem 0.75rem !important;
+}
+
+.tech-toggler span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 5px auto;
+  background: var(--primary-neon);
+  transition: all 0.3s ease-in-out;
+}
+
+.tech-toggler[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.tech-toggler[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.tech-toggler[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link::before {
+  display: none !important;
+}
+
+.active-nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: var(--primary-neon);
+  transform: translateX(-50%);
+  display: block !important;
+}
+
+.active-nav-link {
+  color: var(--primary-neon) !important;
+  text-shadow: 0 0 10px var(--primary-neon);
+}
+
+.fork-btn-inner {
+  background: transparent !important;
+  border: 1.5px solid var(--primary-neon) !important;
+  color: var(--primary-neon) !important;
+  padding: 0.25rem 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.fork-btn-inner:hover {
+  background: var(--primary-neon) !important;
+  color: var(--darker-bg) !important;
+  border-color: var(--primary-neon) !important;
+  box-shadow: 0 0 15px var(--primary-neon);
+}
+
+@media (max-width: 767px) {
+  .tech-navbar {
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    padding-top: 1rem;
+  }
+
+  .navbar-nav .nav-link::before {
+    display: none;
+  }
+
+  .fork-btn-inner {
+    margin-top: 1rem;
+  }
+}
