@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { motion } from "framer-motion"; // Added for animations
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";

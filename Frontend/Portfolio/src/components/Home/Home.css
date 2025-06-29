@@ -445,6 +445,38 @@
   50% { opacity: 0; }
 }
 
+/* Minimal Typewriter Styles */
+.minimal-type {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.2em 0.5em !important;
+  margin: 0 !important;
+  display: inline-block;
+}
+
+.minimal-typing-text {
+  font-size: 1.1em;
+  color: #00fff7;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px #00fff7cc;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.minimal-cursor {
+  display: inline-block;
+  width: 1.2px;
+  height: 1.1em;
+  background: #00fff7;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+  box-shadow: 0 0 6px #00fff7cc;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .heading {

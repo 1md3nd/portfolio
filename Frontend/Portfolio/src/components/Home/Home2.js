@@ -7,69 +7,9 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiDocker, SiKubernetes, SiTerraform } from "react-icons/si";
 import myImg from "../../Assets/avatar.png";
 import { useTheme } from "../../context/ThemeContext";
-import { motion } from "framer-motion";
-
-const HomeAboutSection = styled.section`
-  background: ${props => props.theme === "light" ? "#f8f9fa" : "#1a202c"};
-  color: ${props => props.theme === "light" ? "#333" : "#fff"};
-  padding: 80px 0;
-`;
-
-const Highlight = styled.span`
-  color: #64ffda;
-`;
-
-const SocialIcons = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
-const SocialIconItem = styled.li`
-  margin: 0 15px;
-`;
-
-const SocialLink = styled(motion.a)`
-  color: ${props => props.theme === "light" ? "#333" : "#fff"};
-  font-size: 2em;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #64ffda;
-    text-decoration: underline; /* Added underline for better visibility */
-  }
-`;
-
-function TechIcon({ icon: Icon, label }) {
-  if (typeof Icon === "string") {
-    // For string-based icons (e.g., AWS, Python)
-    return (
-      <motion.div
-        className="tech-icon-wrapper"
-        whileHover={{ scale: 1.15, filter: 'drop-shadow(0 0 10px #00fff7)' }}
-        transition={{ duration: 0.3 }}
-      >
-        <span className="tech-icon neon-text" style={{ fontSize: 28 }}>{Icon}</span>
-        <span className="tech-label">{label}</span>
-      </motion.div>
-    );
-  }
-  return (
-    <motion.div
-      className="tech-icon-wrapper"
-      whileHover={{ scale: 1.15, filter: 'drop-shadow(0 0 10px #00fff7)' }}
-      transition={{ duration: 0.3 }}
-    >
-      <Icon className="tech-icon neon-text" />
-      <span className="tech-label">{label}</span>
-    </motion.div>
-  );
-}
+import "./Home.css";
 
 function Home2() {
   const { theme } = useTheme();
@@ -91,67 +31,6 @@ function Home2() {
       opacity: 1
     }
   };
-
-
-  // Add a modern "What I Do" section
-  const highlights = [
-    {
-      icon: "🛠️",
-      title: "DevOps & Automation",
-      desc: "Automating cloud infrastructure, CI/CD pipelines, and operational tasks using Python, Shell, and modern DevOps tools. Reduced manual effort by 80% and improved deployment reliability."
-    },
-    {
-      icon: "☁️",
-      title: "AWS Cloud Solutions",
-      desc: "Designing, deploying, and monitoring scalable solutions on AWS (S3, Lambda, API Gateway, CloudWatch, EC2). Achieved 99.99% uptime and 75% cost savings with serverless architectures."
-    },
-    {
-      icon: "🐳",
-      title: "Containerization & Orchestration",
-      desc: "Migrated 50+ microservices to Docker & Kubernetes, enabling zero-downtime deployments and robust scaling. Automated EKS cluster and Jenkins upgrades."
-    },
-    {
-      icon: "🔍",
-      title: "Technical Support & Troubleshooting",
-      desc: "Resolved 95%+ incidents within SLA for enterprise apps. Expert in debugging REST APIs, analyzing logs, and proactive monitoring with CloudWatch, Prometheus, and Grafana."
-    }
-  ];
-
-  // Grouped Skills with Levels
-  const groupedSkills = [
-    {
-      category: "Infrastructure",
-      skills: [
-        { icon: SiDocker, label: "Docker", level: 4 },
-        { icon: SiKubernetes, label: "Kubernetes", level: 4 },
-        { icon: SiTerraform, label: "Terraform", level: 3 },
-        { icon: "AWS", label: "AWS", level: 4 }
-      ]
-    },
-    {
-      category: "Languages & Scripting",
-      skills: [
-        { icon: "Python", label: "Python", level: 4 },
-        { icon: "Bash", label: "Shell/Bash", level: 4 },
-        { icon: "Node.js", label: "Node.js", level: 3 }
-      ]
-    },
-    {
-      category: "Databases",
-      skills: [
-        { icon: "MySQL", label: "MySQL", level: 3 },
-        { icon: "MongoDB", label: "MongoDB", level: 3 }
-      ]
-    },
-    {
-      category: "CI/CD & Monitoring",
-      skills: [
-        { icon: "Jenkins", label: "Jenkins", level: 3 },
-        { icon: "Prometheus", label: "Prometheus", level: 2 },
-        { icon: "Grafana", label: "Grafana", level: 2 }
-      ]
-    }
-  ];
 
   return (
     <Container
@@ -323,7 +202,7 @@ function Home2() {
           </motion.div>
         </motion.div>
       </Container>
-    </HomeAboutSection>
+    </Container>
   );
 }
 

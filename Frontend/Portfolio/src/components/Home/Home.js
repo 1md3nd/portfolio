@@ -1,44 +1,13 @@
-import React, { useState, useEffect, Suspense } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Particles from "@tsparticles/react";
-import homeLogo from "../../Assets/home-main.png";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { useTheme } from "../../context/ThemeContext";
-
-function FloatingModel() {
-  return (
-    <mesh position={[0, 0, 0]} rotation={[0, Math.PI / 4, 0]}>
-      <torusKnotGeometry args={[1, 0.3, 128, 16]} />
-      <meshStandardMaterial 
-        color="#0ff"
-        emissive="#0ff"
-        emissiveIntensity={0.5}
-        metalness={0.8}
-        roughness={0.2}
-      />
-    </mesh>
-  );
-}
+import "./Home.css";
 
 function Home() {
   const { theme } = useTheme();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: -(e.clientY / window.innerHeight) * 2 + 1,
-      });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   const particlesConfig = {
     particles: {
       number: { value: 60 },
@@ -80,23 +49,23 @@ function Home() {
   ];
 
   return (
-    <section>
+    <section style={{ paddingTop: "40px", margin: -1 }}>
       <Container
         fluid
         className={`home-section-${theme === "light" ? "light" : "dark"} tech-container`}
         id="home"
-        style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}
+        style={{minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 60 }}
       >
         <Particles className="particles-bg" options={particlesConfig} />
-        <Container className="home-content">
-          <Row className="align-items-center flex-lg-row flex-column-reverse">
-            <Col md={7} className="home-header text-center text-md-start">
+        <Container className="home-content space-y-5 mb-5">
+          <Row className="align-items-center flex-lg-row flex-column-reverse g-5">
+            <Col md={7} className="home-header text-center text-md-start p-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="heading neon-text" style={{ fontWeight: 700, fontSize: "2.8em", textShadow: "0 0 18px #00fff7" }}>
+                <h1 className="heading neon-text" style={{ fontWeight: 700, fontSize: "2.8em", textShadow: "0 0 18px #00fff7", marginBottom: 10 }}>
                   Hi There!{' '}
                   <motion.span
                     className="wave"
@@ -107,22 +76,21 @@ function Home() {
                     👋🏻
                   </motion.span>
                 </h1>
-                <h1 className="heading-name neon-text" style={{ fontWeight: 800, fontSize: "2.2em", margin: "20px 0" }}>
+                <h1 className="heading-name neon-text" style={{ fontWeight: 800, fontSize: "2.2em", margin: "20px 0 10px 0" }}>
                   I'M <span className="main-name" style={{ color: "#00fff7", textShadow: "0 0 20px #00fff7" }}>ANURAG RANJAN</span>
                 </h1>
-                {/* Tagline/Mission Statement */}
                 <motion.p
                   className="tech-tagline"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  style={{ fontSize: "1.3em", color: "#b2fff7", fontWeight: 500, marginBottom: 18, textShadow: "0 0 8px #00fff755" }}
+                  style={{ fontSize: "1.25em", color: "#b2fff7", fontWeight: 500, marginBottom: 18, textShadow: "0 0 8px #00fff755" }}
                 >
                   Building the future with <span style={{ color: "#0ff" }}>AI</span>, <span style={{ color: "#0ff" }}>Cloud</span>, and <span style={{ color: "#0ff" }}>Automation</span>.
                 </motion.p>
                 <motion.div
                   className="type-container"
-                  style={{ padding: 30, textAlign: "left", background: "rgba(0,255,247,0.05)", borderRadius: 8, boxShadow: "0 0 18px #00fff733" }}
+                  style={{ padding: 24, textAlign: "left", background: "rgba(0,255,247,0.05)", borderRadius: 8, boxShadow: "0 0 18px #00fff733", marginBottom: 18 }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -131,7 +99,7 @@ function Home() {
                 </motion.div>
               </motion.div>
             </Col>
-            <Col md={5} className="d-flex justify-content-center align-items-center mb-4 mb-md-0">
+            <Col md={5} className="d-flex justify-content-center align-items-center mb-4 mb-md-0 p-4">
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -242,11 +210,11 @@ function Home() {
                     key={proj.title}
                     href={proj.link}
                     className="featured-card"
-                    whileHover={{ scale: 1.05, boxShadow: "0 0 30px #00fff7cc" }}
+                    whileHover={{ scale: 1.08, boxShadow: "0 0 40px #00fff7cc" }}
                     transition={{ duration: 0.3 }}
                     style={{ textDecoration: "none" }}
                   >
-                    <div className="featured-icon">{proj.icon}</div>
+                    <div className="featured-icon" style={{ fontSize: 32 }}>{proj.icon}</div>
                     <div className="featured-info">
                       <h3 className="neon-text" style={{ fontWeight: 600 }}>{proj.title}</h3>
                       <p style={{ color: "#b2fff7", margin: 0 }}>{proj.description}</p>
@@ -260,7 +228,7 @@ function Home() {
         <div className="scanner-line" />
       </Container>
       <Home2 />
-    </HomeSection>
+    </section>
   );
 }
 

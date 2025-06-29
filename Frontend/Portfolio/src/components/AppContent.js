@@ -11,6 +11,7 @@ import ScrollToTop from "./ScrollToTop";
 import BlogRead from "./Blogs/BlogRead";
 import LocationHome from "./LocationView/LocationHome";
 import DrivingCar from "./SelfDrivingCar/DrivingCar";
+import { motion } from "framer-motion";
 // import PasswordsPage from "./Passwords/PasswordsPage";
 
 function AppContent({ load }) {
@@ -20,7 +21,6 @@ function AppContent({ load }) {
       initial="initial"
       animate="animate"
       exit="exit"
-      variants={pageTransition}
     >
       <NavbarComponent />
       <ScrollToTop />

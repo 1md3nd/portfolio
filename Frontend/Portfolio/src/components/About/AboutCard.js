@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCloud, FaCodeBranch, FaServer, FaLaptopCode } from "react-icons/fa";
+import { FaCloud, FaCodeBranch } from "react-icons/fa";
 
 function AboutCard() {
   return (

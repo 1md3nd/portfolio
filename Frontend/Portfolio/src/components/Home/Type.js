@@ -37,11 +37,8 @@ function Type() {
   }, [text, isDeleting, index, phrases]);
 
   return (
-    <div className="type-container">
-      <h2 className="neon-text typing-text">
-        {text}
-        <span className="cursor" style={{ marginLeft: 2, animation: "blink 1s step-end infinite" }}>|</span>
-      </h2>
+    <div className="type-container minimal-type">
+      <span className="minimal-typing-text">{text}<span className="minimal-cursor">|</span></span>
     </div>
   );
 }
