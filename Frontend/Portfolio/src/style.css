@@ -445,7 +445,6 @@ body.dark-theme {
   background-color: var(--clr-surface-a0);
   bottom: 0 !important;
   padding-top: 10px !important;
-  padding-bottom: 40px !important ;
 }
 .footer-copywright {
   text-align: center !important;

@@ -11,11 +11,17 @@ import ScrollToTop from "./ScrollToTop";
 import BlogRead from "./Blogs/BlogRead";
 import LocationHome from "./LocationView/LocationHome";
 import DrivingCar from "./SelfDrivingCar/DrivingCar";
+import { motion } from "framer-motion";
+// import PasswordsPage from "./Passwords/PasswordsPage";
 
-// AppContent Component handles route changes and renders Navbar based on the location
 function AppContent({ load }) {
   return (
-    <div className="App" id={load ? "no-scroll" : "scroll"}>
+    <motion.div 
+      className="App bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <NavbarComponent />
       <ScrollToTop />
       <Routes>
@@ -27,10 +33,11 @@ function AppContent({ load }) {
         <Route path="/blog/:blogId" element={<BlogRead />} />
         <Route path="/location" element={<LocationHome />} />
         <Route path="/selfdrivingcar" element={<DrivingCar />} />
+        {/* <Route path="/passwords" element={<PasswordsPage />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
