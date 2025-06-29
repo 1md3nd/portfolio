@@ -8,12 +8,8 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import myImg from "../../Assets/avatar.png";
-import { useTheme } from "../../context/ThemeContext";
-import "./Home.css";
 
 function Home2() {
-  const { theme } = useTheme();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,7 +31,7 @@ function Home2() {
   return (
     <Container
       fluid
-      className={`home-about-section tech-container ${theme === "light" ? "light-theme" : "dark-theme"}`}
+      className={`home-about-section tech-container "dark-theme"`}
       id="about"
     >
       <div className="particle-bg" /> {/* Placeholder for subtle particle background */}
@@ -68,19 +64,40 @@ function Home2() {
             </Col>
             <Col md={4} className="myAvtar">
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.08 }}
                 className="avatar-container"
-                style={{ boxShadow: "0 0 40px #00fff7cc, 0 0 80px #0ff2", background: "rgba(0,255,247,0.08)", borderRadius: 18 }}
+                style={{ 
+                  boxShadow: "0 0 80px #00fff7cc, 0 0 160px #0ff2", 
+                  background: "rgba(0,255,247,0.13)", 
+                  borderRadius: 24, 
+                  padding: 0, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  minHeight: 340,
+                  minWidth: 340,
+                  maxWidth: 360,
+                  maxHeight: 360
+                }}
               >
                 <Tilt
                   className="parallax-effect-glare-scale"
                   perspective={500}
                   glareEnable={true}
                   glareMaxOpacity={0.45}
-                  scale={1.02}
+                  scale={1.04}
                 >
-                  <div className="inner-element">
-                    <img src={myImg} className="img-fluid avatar" alt="avatar" style={{ filter: 'brightness(1.2) contrast(1.2) drop-shadow(0 0 18px #00fff7)' }} />
+                  <div className="inner-element" style={{ borderRadius: 24, overflow: 'hidden', background: 'rgba(0,255,247,0.04)' }}>
+                    <img src={myImg} className="img-fluid avatar" alt="avatar" style={{ 
+                      filter: 'brightness(1.1) grayscale(1) contrast(1.15) drop-shadow(0 0 32px #00fff7cc)', 
+                      width: 320, 
+                      height: 320, 
+                      borderRadius: 24, 
+                      objectFit: 'cover',
+                      background: '#181c20',
+                      border: 'none',
+                      boxShadow: '0 0 40px #00fff7cc, 0 0 80px #0ff2'
+                    }} />
                     <div className="tech-overlay"></div>
                   </div>
                 </Tilt>

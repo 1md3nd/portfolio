@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 function Type() {
-  const phrases = [
+  const phrases = useMemo(() => [
     "DevOps Architect",
     "Cloud Innovator",
     "Tech Visionary",
     "Infrastructure Engineer",
     "AI Explorer",
     "System Designer"
-  ];
+  ], []);
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);

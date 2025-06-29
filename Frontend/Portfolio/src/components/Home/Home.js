@@ -3,12 +3,10 @@ import { motion } from "framer-motion";
 import Particles from "@tsparticles/react";
 import Home2 from "./Home2";
 import Type from "./Type";
-import { useTheme } from "../../context/ThemeContext";
 import "./Home.css";
 
 function Home() {
-  const { theme } = useTheme();
-  const particlesConfig = {
+ const particlesConfig = {
     particles: {
       number: { value: 60 },
       color: { value: "#00fff7" },
@@ -52,7 +50,7 @@ function Home() {
     <section style={{ paddingTop: "40px", margin: -1 }}>
       <Container
         fluid
-        className={`home-section-${theme === "light" ? "light" : "dark"} tech-container`}
+        className={`home-section-dark tech-container`}
         id="home"
         style={{minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 60 }}
       >

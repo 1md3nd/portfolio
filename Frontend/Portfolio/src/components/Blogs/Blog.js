@@ -1,13 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 import BlogHome from "./BlogHome";
 import ParticleBackground from "../ParticleBackground";
 import "./Blog.css";
 
 function Blog() {
-  const { theme } = useTheme();
 
   const pageVariants = {
     initial: { opacity: 0 },
@@ -51,7 +49,7 @@ function Blog() {
               </p>
             </motion.div>
             
-            <BlogHome theme={theme} />
+            <BlogHome />
           </motion.div>
         </Container>
       </Container>
