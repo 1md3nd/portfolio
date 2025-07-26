@@ -1,7 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
 % Dependencies
-% NOTE: Some packages (lastpage, hyperref) require second build!
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -11,9 +10,7 @@
 \usepackage{multicol}
 \usepackage{bookmark}
 \usepackage{lastpage}
-
-% Sans-Serif
-\usepackage[default]{sourcesanspro}
+\usepackage[default]{sourcesanspro} % Sans-serif font
 
 % Colors
 \usepackage{xcolor}
@@ -21,7 +18,7 @@
 \definecolor{accentText}{HTML}{0e6e55}
 \definecolor{accentLine}{HTML}{a16f0b}
 
-% Misc. Options
+% Page style
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot{}
@@ -29,7 +26,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \urlstyle{same}
 
-% Adjust Margins
+% Adjust margins
 \addtolength{\oddsidemargin}{-0.7in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
@@ -43,9 +40,16 @@
 \raggedbottom
 \raggedright
 
-% ATS Readability
+% ATS Unicode
 \input{glyphtounicode}
 \pdfgentounicode=1
+
+% Section Formatting
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
 
 % Custom Commands
 \newcommand{\documentTitle}[2]{
@@ -60,153 +64,90 @@
   \end{center}
 }
 
-\newcommand{\documentFooter}[1]{
-  \setlength{\footskip}{10.25pt}
-  \fancyfoot[C]{\footnotesize #1}
+% Job Heading
+\newcommand{\jobHeading}[3]{
+  \noindent\textbf{#1} — #2 \hfill \textit{#3} \\
 }
 
-\newcommand{\numberedPages}{
-  \documentFooter{\thepage/\pageref{LastPage}}
-}
-
-\titleformat{\section}{
-  \vspace{-5pt}
-  \color{accentText}
-  \raggedright\large\bfseries
-}{}{0em}{}[\color{accentLine}\titlerule]
-
-\newcommand{\tinysection}[1]{
-  \phantomsection
-  \addcontentsline{toc}{section}{#1}
-  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
-}
-
-\newcommand{\heading}[2]{
-  \hspace{10pt}#1\hfill#2\\
-}
-
-\newcommand{\headingBf}[2]{
-  \heading{\textbf{#1}}{\textbf{#2}}
-}
-
-\newcommand{\headingIt}[2]{
-  \heading{\textit{#1}}{\textit{#2}}
-}
-
+% Bullet List Environment
 \newenvironment{resume_list}{
-  \vspace{-7pt}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
-}{
-  \end{itemize}
-}
-
-\newcommand{\itemTitle}[1]{
-  \item[] \underline{#1}\vspace{4pt}
-}
+  \vspace{-6pt}
+  \begin{itemize}[itemsep=2pt, leftmargin=18pt]
+}{\end{itemize}}
 
 \renewcommand\labelitemi{--}
 
+% ---------------- Document ----------------
+
 \begin{document}
 
-% Heading
-\documentTitle{\href{https://www.1md3nd.com}{Anurag Ranjan}}{
-  \href{https://www.1md3nd.com}{\raisebox{-0.15\height} \faGlobe\ 1md3nd.com} ~ | ~
-  \href{tel:+918630004742}{\raisebox{-0.15\height} \faMobile\ +91 8630004742} ~ | ~
-  \href{mailto:anuragr741@gmail.com}{\raisebox{-0.15\height} \faEnvelope\ anuragr741@gmail.com} ~ | ~
-  \href{https://linkedin.com/in/1md3nd}{\raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/1md3nd} ~ | ~
-  \href{https://github.com/1md3nd}{\raisebox{-0.15\height} \faGithub\ github.com/1md3nd}
+\documentTitle{\href{https://1md3nd.com}{Anurag Ranjan}}{
+    \href{tel:+918630004742}{\raisebox{-0.15\height} \faMobile\ +91 8630004742} ~ | ~
+    \href{https://www.1md3nd.com}{\raisebox{-0.15\height} \faGlobe\ 1md3nd.com} ~ | ~
+    \href{mailto:anuragr741@gmail.com}{\raisebox{-0.15\height} \faEnvelope\ anuragr741@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/1md3nd}{\raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/1md3nd} ~ | ~
+    \href{https://github.com/1md3nd}{\raisebox{-0.15\height} \faGithub\ github.com/1md3nd}
 }
 
-% Summary
-\tinysection{Summary}
-DevOps Engineer with 1+ years of technical support experience in enterprise environments. Skilled in troubleshooting and debugging technical systems, with expertise in REST APIs, AWS services (S3, CloudWatch, API Gateway), and database operations. Proven track record in operational support, incident management, and scripting automation. Passionate about operational excellence and customer-focused technical innovation.
-
+\section{Summary}
+DevOps Engineer with 2+ years of experience in building and maintaining scalable cloud infrastructure, CI/CD pipelines, and full-stack observability. Proven track record in proactively managing platform health using Grafana, and CloudWatch to monitor metrics such as latency, error codes, CPU usage, and search throughput. Ensured 99.99\% uptime and optimized performance for production systems handling 120K+ daily HTTP requests.
 
 \section{Technical Skills}
-\begin{multicols}{2}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=85pt]
-    \item[\textbf{AWS Services}] S3, CloudWatch, API Gateway, Lambda, EC2
-    \item[\textbf{Programming}] Python, Shell/Bash Scripting, Node.js
-    \item[\textbf{APIs \& Debug}] REST APIs, Postman, Error Code Analysis
-    \item[\textbf{Databases}] MySQL, MongoDB, Query Optimization
-    \item[\textbf{DevOps Tools}] Jenkins, Docker, Kubernetes, Terraform
-    \item[\textbf{Monitoring}] CloudWatch Metrics, Prometheus, Grafana
-  \end{itemize}
-\end{multicols}
+\begin{resume_list}
+  \item \textbf{Cloud:} AWS (S3, Lambda, EC2, CloudWatch, API Gateway, Route53, DynamoDB, Kinesis, Step Functions)
+  \item \textbf{DevOps:} Docker, Kubernetes, Jenkins, GitHub Actions, Terraform, CloudFormation
+  \item \textbf{Programming:} Python, Shell/Bash, Node.js
+  \item \textbf{APIs \& Tools:} REST APIs, Postman, Git, Log Analysis, Debugging
+  \item \textbf{Monitoring:} Prometheus, Grafana, ElasticSearch, CloudWatch
+  \item \textbf{Databases:} MySQL, MongoDB, DynamoDB
+\end{resume_list}
 
-% Professional Experience
 \section{Professional Experience}
 
-\headingBf{\href{https://www.impressico.com}{Impressico Business Solutions}}{Jan 2024 -- Present}  
-\headingIt{Associate DevOps Engineer }{Noida, India}  
-\begin{resume_list}  
-  \item Provided \textbf{\color{accentTitle}{technical support}} for 10+ customer-facing applications, resolving 95\% of issues within SLA
- \item Troubleshot and debugged technical issues involving \textbf{\color{accentTitle}{Kubernetes, OpenSearch}}, analyzing logs, error codes, and exceptions
-  \item Implemented monitoring solutions using \textbf{\color{accentTitle}{CloudWatch}} and custom health metrics for proactive issue detection
-  \item Automated operational tasks using \textbf{\color{accentTitle}{Python and Shell scripts}}, saving 15 hours/week of manual work
-  \item Worked with \textbf{\color{accentTitle}{AWS services}} including S3 for log storage, API Gateway for service integration, and CloudWatch for monitoring
- \item Automated \textbf{\color{accentTitle}{EKS cluster and Jenkins upgrades}}, reducing manual effort by 80\% and minimizing downtime
-\end{resume_list}
 
-
-\headingBf{\href{https://www.healthcart.com}{HealthKart}}{Jan 2023 -- July 2023} 
-\headingIt{\href {https://drive.google.com/file/d/1Iz83NKtrG7A1KG_rK0P8s_sAquzRm_OY/view?usp=sharing}{Software Development Engineer Intern}}{}
+\jobHeading{Associate DevOps Engineer}{Impressico Business Solutions, Noida}{Jan 2024 – Present}
 \begin{resume_list}
-  \item Supported the development and testing of RESTful APIs, improving back-end functionality.
-  \item Collaborated with team members during debugging and troubleshooting sessions to improve system reliability.  
-  \item Participated in code reviews and team meetings to understand project workflows and improve coding standards.  
+  \item Managed and supported 10+ production applications on EKS and ElasticSearch; resolved 95\% incidents within SLA.
+  \item Automated EKS cluster upgrades and Jenkins maintenance, reducing manual work by 80\%.
+   \item Built 15+ custom Grafana dashboards to monitor response time, DB load, and JVM metrics.
+  \item Created alert rules for RDS CPU, write IOPS, and 4XX/5XX spikes; helped reduce mean incident resolution time by 30\%.
+  \item Developed Python/Bash scripts saving ~15 hrs/week across operations.
+  \item Worked with S3, API Gateway, and Lambda for scalable microservice integrations.
+\end{resume_list}
+\jobHeading{Backend Engineer}{OmniDataX Pvt Ltd, Bangalore (Remote)}{July 2023 – Jan 2024}
+\begin{resume_list}
+  \item Built LLM chatbot backend with Hugging Face + Python on EC2; served 10,000+ monthly queries.
+  \item Deployed face detection with AWS Rekognition and DynamoDB for real-time S3 processing.
+  \item Configured Auto Scaling + Load Balancers ensuring 99.9\% uptime; optimized latency by 50\%.
+\end{resume_list}
+
+\jobHeading{Software Development Intern}{HealthKart, Gurgaon}{Jan 2023 – Jul 2023}
+\begin{resume_list}
+  \item Designed and implemented unit and integration test cases for RESTful APIs using Jest and Postman.
+  \item Achieved over 90\% test coverage for backend services, ensuring stability during CI/CD deployments.
+  \item Identified and fixed edge case failures through automated testing, reducing production bugs by 25\%.
 \end{resume_list}
 
 
-% Education
-\section{Education}
-
-\headingBf{KIET Group of Institutions}{2019 -- 2023}
-\headingIt{Bachelor of Technology in Information Technology}{CGPA: 8.14}
-
-% Projects (Position 4)
 \section{Key Projects}
 
-\headingBf{Serverless Full-Stack Portfolio with Automated DevOps Lifecycle \href{https://github.com/1md3nd/portfolio}{\small\textit{\color{gray}{[GitHub]}}}}{}
+\jobHeading{Serverless Portfolio with CI/CD Automation}{Personal Project}{2023}
 \begin{resume_list}
-\item Architected serverless app using AWS Lambda, API Gateway, DynamoDB achieving \textbf{\color{accentTitle}{99.99\% uptime}}
-\item Implemented CI/CD pipeline with GitHub Actions, reducing deployment time by \textbf{\color{accentTitle}{80\% (30min to 6min)}}
-\item Optimized React.js frontend with CDN caching, improving page load speed by \textbf{\color{accentTitle}{65\%}}
-\item Reduced monthly infrastructure costs by \textbf{\color{accentTitle}{75\%}} using serverless vs traditional EC2
+  \item Built full-stack portfolio app with Lambda, API Gateway, and DynamoDB (99.99\% uptime).
+  \item Implemented CI/CD using GitHub Actions + CloudFormation; reduced deployment time from 30min to 6min.
+  \item CDN caching via CloudFront improved load speed by 65\%; reduced infra cost by 75\%.
 \end{resume_list}
 
-\headingBf{EKS Cluster Automation and Jenkins Migration}{Impressico Business Solutions}
+\section{Education}
+\jobHeading{B.Tech, Information Technology}{KIET Group of Institutions}{2019 – 2023}
 \begin{resume_list}
-\item Automated EKS cluster provisioning and Jenkins upgrade process, reducing manual effort by \textbf{\color{accentTitle}{80\%}}
-\item Migrated 50+ microservices to containerized environment with zero downtime deployment
-\item Implemented Infrastructure as Code using Cloudformation for \textbf{\color{accentTitle}{reproducible environments}}
-\item Created automated rollback mechanisms ensuring \textbf{\color{accentTitle}{99.9\% deployment success rate}}
+  \item CGPA: 8.14
 \end{resume_list}
 
-% Achievements (Position 5)
-\section{Achievements}
-\headingBf{KIET Codechef Chapter Executive Member}{}
+\section{Certifications \& Achievements}
 \begin{resume_list}
-  \item Organized and managed coding events, boosting competitive programming participation.
-\end{resume_list}
-
-\headingBf{Leetcode Success \href{https://www.leetcode.com/1md3nd}{\small\textit{\color{gray}{Link}}}}{}
-\begin{resume_list}
-  \item \textbf{\color{accentTitle}{Solved over 750 algorithm problems}}, demonstrating strong problem solving skills and dedication.
-\end{resume_list}
-
-\headingBf{Postman API Student Expert}{}
-\begin{resume_list}
-  \item Recognized for excellence in \textbf{\color{accentTitle}{API design, testing, and automation}} using Postman.
-\end{resume_list}
-
-% Certifications (Bottom)
-\section{Certifications}
-\begin{resume_list}  
-  \item \headingBf{\href{https://www.coursera.org/account/accomplishments/verify/VAXY9EEWXD3C}{Introduction to Git and GitHub}}{}
-  \item \headingBf{\href{https://www.coursera.org/account/accomplishments/verify/MEHYBBVAYE8E}{Data Structures and Performance}}{}
-  \item \headingBf{\href{https://www.coursera.org/account/accomplishments/verify/R73VUS4L44RN}{Palo Alto Networks Academy Cybersecurity Foundation}}{}
-  \item \headingBf{\href{https://drive.google.com/file/d/15n4G1_3d75gbxfikhzodotRZVXInxqhJ/view?usp=sharing}{CCNAv7: Introduction to Networks}}{}
+  \item \textbf{Certifications:} Git \& GitHub, Data Structures (Coursera), Palo Alto Cybersecurity Foundation, CCNAv7
+  \item \textbf{Achievements:} Solved 750+ LeetCode problems, CodeChef Chapter Executive, Postman API Student Expert
 \end{resume_list}
 
 \end{document}
