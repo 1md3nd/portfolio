@@ -1,8 +1,8 @@
+name: Compile and Upload LaTeX Resume
 
-name: Compile LaTeX
 on:
   push:
-    branch:
+    branches:
       - main
     paths:
       - Public/resume/latex/**
@@ -10,46 +10,52 @@ on:
   workflow_dispatch:
 
 jobs:
-  latex-build:
+  build-pdf:
+    name: Build PDF with LaTeX
     runs-on: ubuntu-latest
     container: kjarosh/latex:2024.4
+
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Build using latexmk
-        run: latexmk -pdf -output-directory=Public/resume/out Public/resume/latex/default.tex
+      - name: Create Output Directory
+        run: mkdir -p Public/resume/out
 
-      - name: List
-        run: ls Public/resume/out
+      - name: Compile LaTeX Resume
+        run: |
+          latexmk -pdf -output-directory=Public/resume/out Public/resume/latex/default.tex
+          ls -lh Public/resume/out
 
-      - name: Upload document
+      - name: Upload Compiled PDF
         uses: actions/upload-artifact@v4
         with:
-          name: compiled-pdf
+          name: resume-pdf
           path: Public/resume/out/default.pdf
-          
-  upload-resume:
-    needs: latex-build
+
+  upload-to-repo:
+    name: Commit PDF to Repository
+    needs: build-pdf
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        
-      - name: Download artifacts
+
+      - name: Download PDF Artifact
         uses: actions/download-artifact@v4
         with:
-          name: compiled-pdf
-          
-      - name: List
-        run: |
-          ls
-          ls Public/resume
-          mv ./default.pdf ./Public/resume/out/default.pdf
-        
-      - name: Upload pdf to github
+          name: resume-pdf
+
+      - name: Ensure Output Directory
+        run: mkdir -p Public/resume/out
+
+      - name: Move PDF into Output Folder
+        run: mv default.pdf Public/resume/out/default.pdf
+
+      - name: Commit and Push PDF
         uses: EndBug/add-and-commit@v9
         with:
-          add: "Public/resume/out/default.pdf"
-          message: "Upload latest resume pdf"
-    
+          add: Public/resume/out/default.pdf
+          message: "Update compiled resume PDF"
+          default_author: github_actions
